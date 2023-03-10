@@ -22,7 +22,7 @@ FILE_PATH=`dirname $WRITE_FILE`
 
 if [ ! -d $FILE_PATH ]
 then
-	mkdir $FILE_PATH
+	mkdir -p  $FILE_PATH
 fi
 
 touch $WRITE_FILE

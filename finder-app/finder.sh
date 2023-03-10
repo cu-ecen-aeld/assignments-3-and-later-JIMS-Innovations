@@ -22,8 +22,8 @@ fi
 
 if [ -d $FILE_DIR ]
 then
-	NO_OF_MATCHED_FILES=`grep -l $SEARCH_STR $FILE_DIR/* | wc -l`
-	NO_OF_MATCHED_LINES=`grep $SEARCH_STR $FILE_DIR* -c`
+	NO_OF_MATCHED_FILES=`grep  -rnw $FILE_DIR -e $SEARCH_STR | wc -l`
+	NO_OF_MATCHED_LINES=`grep -r  $SEARCH_STR $FILE_DIR -c | wc -l`
 	echo "The number of files are $NO_OF_MATCHED_FILES and the number of matching lines are $NO_OF_MATCHED_LINES"
 else
 	echo "Not a directory!"
