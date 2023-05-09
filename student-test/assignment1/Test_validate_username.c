@@ -6,10 +6,17 @@
 
 /**
 * This function should:
+<<<<<<< HEAD
 *   1) Call the my_username() function in autotest-validate.c to get your hard coded username.
 *   2) Obtain the value returned from function malloc_username_from_conf_file() in username-from-conf-file.h within
 *       the assignment autotest submodule at assignment-autotest/test/assignment1/
 *   3) Use unity assertion TEST_ASSERT_EQUAL_STRING_MESSAGE to verify the two strings are equal.  See
+=======
+*   1) Call the my_username() function in Test_assignment_validate.c to get your hard coded username.
+*   2) Obtain the value returned from function malloc_username_from_conf_file() in username-from-conf-file.h within
+*       the assignment autotest submodule at assignment-autotest/test/assignment1/
+*   3) Use unity assertion TEST_ASSERT_EQUAL_STRING_MESSAGE the two strings are equal.  See
+>>>>>>> assignments-base/assignment2
 *       the [unity assertion reference](https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityAssertionsReference.md)
 */
 void test_validate_my_username()
@@ -18,7 +25,11 @@ void test_validate_my_username()
      * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
      * config file and my_username() functions are setup properly
      */
+<<<<<<< HEAD
     const char* name_1 = my_username();
     const char* name_2 = malloc_username_from_conf_file();
     TEST_ASSERT_EQUAL_STRING_MESSAGE(name_1, name_2, "Validate Username");
+=======
+    TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+>>>>>>> assignments-base/assignment2
 }
