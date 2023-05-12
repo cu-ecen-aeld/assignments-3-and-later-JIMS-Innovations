@@ -13,6 +13,6 @@ CROSS_COMPILE:
 	aarch64-none-linux-gnu-gcc writer.c -o writer
 
 clean:
-	rm 	$(OUTPUT)
+	rm -f $(OUTPUT)
 	
  
