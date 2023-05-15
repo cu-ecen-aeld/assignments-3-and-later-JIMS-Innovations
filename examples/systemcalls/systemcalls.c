@@ -16,8 +16,12 @@ bool do_system(const char *cmd)
  *   and return a boolean true if the system() call completed with success
  *   or false() if it returned a failure
 */
-
-    return true;
+	int ret;
+	ret = system(cmd);
+	if(ret == 0 || ret == -1 || ret == 127)
+		return false;
+	else
+    	return true;
 }
 
 /**
@@ -59,9 +63,28 @@ bool do_exec(int count, ...)
  *
 */
 
+	pid_t pid;
+	int ret;
+	
+	pid = fork();
+	
+	if(pid == -1)
+	{
+		return false;
+	}
+	else if(pid == 0)
+	{
+		execv(command[0], command);
+		return false;
+	}
+	if (waitpid(pid, &ret, 0) == -1)
+		return false;
+	else if (WIFEXITED(ret))
+		return true;	
+	
     va_end(args);
 
-    return true;
+    return false;
 }
 
 /**
@@ -92,8 +115,27 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
  *   The rest of the behaviour is same as do_exec()
  *
 */
+	pid_t pid;
+	int fd = open(outputfile, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+	int ret;
+	pid = fork();
 
+	if(pid == 0)
+	{
+		dup2(fd, 1);
+		close(fd);
+		execv(command[0], command);
+		return false;
+	}
+	else
+	{
+		return false;
+	}
+	if (waitpid(pid, &ret, 0) == -1)
+		return false;
+	else if (WIFEXITED(ret))
+		return true;
     va_end(args);
 
-    return true;
+    return false;
 }
