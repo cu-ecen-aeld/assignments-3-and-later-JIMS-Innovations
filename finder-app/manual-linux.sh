@@ -14,6 +14,7 @@ ARCH=arm64
 CROSS_COMPILE=aarch64-none-linux-gnu-
 SYSROOT=/home/jesutofunmi/Desktop/arm-cross-compiler/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/../aarch64-none-linux-gnu/libc
 FINDER_APP=/home/jesutofunmi/Desktop/Embedded_Linux/assignment-3-JIMS-Innovations/finder-app
+PATCH=/home/jesutofunmi/Desktop/Embedded_Linux/assignment-3-JIMS-Innovations/finder-app/patch/dtc-multiple-definition.patch
 
 export PATH=$PATH:/home/jesutofunmi/Desktop/arm-cross-compiler/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin
 
@@ -37,6 +38,7 @@ if [ ! -e ${OUTDIR}/linux-stable/arch/${ARCH}/boot/Image ]; then
     cd linux-stable
     echo "Checking out version ${KERNEL_VERSION}"
     git checkout ${KERNEL_VERSION}
+    git apply ${PATCH}
 
     # TODO: Add your kernel build steps here
 
