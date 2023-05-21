@@ -13,8 +13,7 @@ FINDER_APP_DIR=$(realpath $(dirname $0))
 ARCH=arm64
 CROSS_COMPILE=aarch64-none-linux-gnu-
 SYSROOT=/home/jesutofunmi/Desktop/arm-cross-compiler/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/../aarch64-none-linux-gnu/libc
-FINDER_APP=/home/jesutofunmi/Desktop/Embedded_Linux/assignment-3-JIMS-Innovations/finder-app
-PATCH=/home/jesutofunmi/Desktop/Embedded_Linux/assignment-3-JIMS-Innovations/finder-app/patch/dtc-multiple-definition.patch
+PATCH=~/Desktop/Embedded_Linux/assignment-3-JIMS-Innovations/finder-app/patch/dtc-multiple-definition.patch
 
 export PATH=$PATH:/home/jesutofunmi/Desktop/arm-cross-compiler/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin
 
@@ -107,7 +106,7 @@ sudo mknod -m 666 dev/console c 5 1
 
 
 # TODO: Clean and build the writer utility
-cd ${FINDER_APP}
+cd ${FINDER_APP_DIR}
 make clean 
 make CROSS_COMPILE
 cp writer ${OUTDIR}/rootfs/home
