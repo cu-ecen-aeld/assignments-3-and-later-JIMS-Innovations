@@ -37,7 +37,12 @@ if [ ! -e ${OUTDIR}/linux-stable/arch/${ARCH}/boot/Image ]; then
     cd linux-stable
     echo "Checking out version ${KERNEL_VERSION}"
     git checkout ${KERNEL_VERSION}
-    git apply ${PATCH}
+	cp ${PATCH} .
+	if git apply --check dtc-multiple-definition.patch; then
+        git apply dtc-multiple-definition.patch
+    else
+        echo "Patch has already been applied"
+    fi
 
     # TODO: Add your kernel build steps here
 
