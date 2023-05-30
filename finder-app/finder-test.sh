@@ -6,7 +6,7 @@ set -e
 set -u
 
 make clean
-CROSS_COMPILE="aarch64-buildroot-linux-uclibc-gcc" 
+CROSS_COMPILE="aarch64-buildroot-linux-uclibc-" 
 make default
 
 NUMFILES=10
