@@ -4,7 +4,7 @@
 # Date: 9 May, 2023
 
 all:
-	aarch64-none-linux-gnu-gcc writer.c -o writer
+	$(CROSS_COMPILE)gcc writer.c -o writer
 
 CROSS_COMPILE:
 	aarch64-none-linux-gnu-gcc writer.c -o writer
