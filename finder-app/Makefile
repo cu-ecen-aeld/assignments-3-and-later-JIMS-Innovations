@@ -3,6 +3,8 @@
 # source file.
 # Date: 9 May, 2023
 
+CROSS_COMPILE="aarch64-buildroot-linux-uclibc-"
+
 all:
 	$(CROSS_COMPILE)gcc writer.c -o writer
 default:
