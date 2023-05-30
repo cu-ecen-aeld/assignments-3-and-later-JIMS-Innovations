@@ -17,7 +17,7 @@
 int main(int argc, char *argv[])
 {
 
-	if(argc < 3){
+	if(argc < 2){
 		FILE *fp;
 		fp = fopen(argv[1], "w");
 		fprintf(fp, "%s\n", argv[2]);
