@@ -6,7 +6,8 @@ set -e
 set -u
 
 make clean
-CROSS_COMPILE="" make default
+CROSS_COMPILE="aarch64-buildroot-linux-uclibc-gcc" 
+make default
 
 NUMFILES=10
 WRITESTR=AELD_IS_FUN
