@@ -31,16 +31,17 @@ int main(int argc, char** argv)
 
     if (argc == 2)
     {
-//        if (strlen(argv[2]) && argv[2][1] == 'd')
+        if (strlen(argv[1])  && argv[1][1] == 'd')
         {
-            //make damon
+            //make daemon
+			printf("Entering daemon mode\n");
             int pid = fork();
             if (pid != 0)
             {
                 exit(0);
             }
             setsid();
-            chdir("/");
+            chdir("/"); 
         }
     }
 
