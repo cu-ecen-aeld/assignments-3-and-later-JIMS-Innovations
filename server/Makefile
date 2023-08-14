@@ -3,7 +3,7 @@
 # @date: 19 June, 2023
 
 TARGET = aesdsocket
-CROSS_COMPILE=aarch64-none-linux-gnu-
+CROSS_COMPILE=
 STATIC=-static
 all:
 	$(CROSS_COMPILE)gcc $(STATIC) $(TARGET).c -o $(TARGET)
