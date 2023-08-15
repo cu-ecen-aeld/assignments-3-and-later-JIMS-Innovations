@@ -3,12 +3,16 @@
 # @date: 19 June, 2023
 
 TARGET = aesdsocket
-CROSS_COMPILE=aarch64-none-linux-gnu-
-STATIC=-static
+CC = gcc
+
+CFLAGS = -static -g -Wall -Werror
+
+.PHONY: all
 all:
-	$(CROSS_COMPILE)gcc $(STATIC) $(TARGET).c -o $(TARGET)
+	$(CROSS_COMPILE) $(CC) $(CFLAGS) $(TARGET).c -o $(TARGET)
 
 default: all
 
+.PHONY: clean
 clean:
 	rm $(TARGET)
